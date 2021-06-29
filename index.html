@@ -8,8 +8,30 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <button>Go</button>
     <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/logo.png" width=400 height="300">
+                <h1>Library</h1>
+            </div>
+            <form>
+                <label for="author">Author</label>
+                <input type="text" id="author"><br>
+
+
+                <label for="title">Book Title</label>
+                <input type="text" id="title"><br>
+
+                <label for="pages">Pages</label>
+                <input type="text" id="pages"><br>
+
+                <label for="status">Status</label>
+                <input type="checkbox" name="status" id="status"><br>
+
+                <button id="addBookButton">Add Book</button>
+            </form>
+        </div>
+        <div class="bookshelf"></div>
     </div>
     <script src="script.js"></script>
 </body>
