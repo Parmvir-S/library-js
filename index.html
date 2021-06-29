@@ -11,27 +11,57 @@
     <div class="container">
         <div class="sidebar">
             <div class="logo">
-                <img src="/logo.png" width=400 height="300">
+                <img src="/logo.png" width=100 height="100">
                 <h1>Library</h1>
             </div>
-            <form>
-                <label for="author">Author</label>
-                <input type="text" id="author"><br>
+            <div class="formContainer">
+                <form>
+                    <label for="author">Author</label>
+                    <input type="text" id="author"><br>
 
 
-                <label for="title">Book Title</label>
-                <input type="text" id="title"><br>
+                    <label for="title">Book Title</label>
+                    <input type="text" id="title"><br>
 
-                <label for="pages">Pages</label>
-                <input type="text" id="pages"><br>
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages"><br>
 
-                <label for="status">Status</label>
-                <input type="checkbox" name="status" id="status"><br>
+                    <label for="status">Status</label>
+                    <input type="checkbox" name="status" id="status"><br>
 
-                <button id="addBookButton">Add Book</button>
-            </form>
+                    <button id="addBookButton">Add Book</button>
+                </form>
+            </div>
         </div>
-        <div class="bookshelf"></div>
+        <div class="bookshelf">
+            <div class="stats">
+                <p>Number of Books: <span>0</span></p>
+                <button class="clearbutton">Clear Library</button>
+            </div>
+            <table>
+                <tr>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Pages</th>
+                  <th>Status</th>
+                  <th>Remove</th>
+                </tr>
+                <tr>
+                  <td>Naruto</td>
+                  <td>Kishimoto</td>
+                  <td>400</td>
+                  <td>Read</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                    <td>One Piece</td>
+                    <td>Oda</td>
+                    <td>500</td>
+                    <td>Not Read</td>
+                    <td>X</td>
+                  </tr>
+              </table>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
