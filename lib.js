@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
     bookCount.textContent = myLibrary.length;
 
 })
+
 let myLibrary = [];
 
 //Book Object Constructor Function
@@ -52,14 +53,11 @@ const table = document.querySelector("table");
 //Display Books
 function displayBooks() {
     getBook();
-
     let values = [];
-    for (let row of table.rows) 
-    {
-        for(let cell of row.cells) 
-        {
-        let val = cell.innerText; 
-        values.push(val)
+    for (let row of table.rows) {
+        for (let cell of row.cells) {
+            let val = cell.innerText; 
+            values.push(val)
         }
     }
 
@@ -70,7 +68,6 @@ function displayBooks() {
             domAdditionFunction(myLibrary[i])
         }
     }
-
 }
 
 function domAdditionFunction(book) {
@@ -85,9 +82,10 @@ function domAdditionFunction(book) {
                                     "<td>" + book["author"] + "</td>" + 
                                     "<td>" + book["pages"] + "</td>" + 
                                     "<td>" + "<button id='toggle'>" + readStatus + "</button>" + "</td>" +
-                                    "<td>" + "<button>" + "remove" + "</button>" + "</td>" +
+                                    "<td>" + "<button id='remove'>" + "remove" + "</button>" + "</td>" +
                                 "</tr>"
     table.appendChild(tableContent);
+
     const tog = tableContent.querySelector("#toggle");
     tog.addEventListener("click", (e) => {
         if (e.target.innerText == "Not Read") {
@@ -95,6 +93,18 @@ function domAdditionFunction(book) {
         } else {
             e.target.innerText = "Not Read";
         }
+    })
+
+    const remove = tableContent.querySelector("#remove");
+    remove.addEventListener("click", (e) => {
+        let x = myLibrary.indexOf(book);
+        console.log(x)
+        // myLibrary.splice(x, 1)
+        // let getLocalStorage = JSON.parse(localStorage.getItem("Books"));
+        // const index = getLocalStorage.splice(x, 1);
+        // console.log(getLocalStorage)
+        // localStorage.setItem("Books", JSON.stringify(getLocalStorage))
+        // displayBooks()
     })
 }
 
