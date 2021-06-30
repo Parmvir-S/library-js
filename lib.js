@@ -58,7 +58,7 @@ function displayBooks() {
     {
         for(let cell of row.cells) 
         {
-        let val = cell.innerText; // your code below
+        let val = cell.innerText; 
         values.push(val)
         }
     }
@@ -74,14 +74,28 @@ function displayBooks() {
 }
 
 function domAdditionFunction(book) {
+    let readStatus = "";
+    if (book["readStatus"] == false) {
+        readStatus = "Not Read"
+    } else {
+        readStatus = "Read"
+    }
     const tableContent = document.createElement("tr");
     tableContent.innerHTML = "<tr>" + "<td>" + book["title"] + "</td>" + 
                                     "<td>" + book["author"] + "</td>" + 
                                     "<td>" + book["pages"] + "</td>" + 
-                                    "<td>" + "<button>" + book["readStatus"] + "</button>" + "</td>" +
+                                    "<td>" + "<button id='toggle'>" + readStatus + "</button>" + "</td>" +
                                     "<td>" + "<button>" + "remove" + "</button>" + "</td>" +
                                 "</tr>"
     table.appendChild(tableContent);
+    const tog = tableContent.querySelector("#toggle");
+    tog.addEventListener("click", (e) => {
+        if (e.target.innerText == "Not Read") {
+            e.target.innerText = "Read";
+        } else {
+            e.target.innerText = "Not Read";
+        }
+    })
 }
 
 //Clear All Books
@@ -89,7 +103,7 @@ const clearAllBooksButton = document.querySelector(".clearbutton");
 clearAllBooksButton.addEventListener("click", () => {
     myLibrary = [];
     localStorage.clear();
-    while (table.childNodes.length > 1) {
+    while (table.childNodes.length > 2) {
         table.removeChild(table.lastChild);
     }
     bookCount.textContent = 0;
