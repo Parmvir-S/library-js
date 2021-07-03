@@ -1,7 +1,6 @@
 window.addEventListener("load", () => {
     displayBooks();
     bookCount.textContent = myLibrary.length;
-
 })
 
 let myLibrary = [];
@@ -27,7 +26,26 @@ function makeBookObject() {
 //Add Book To LocalStorage
 function addBookToStorage() {
     let book = makeBookObject();
-    myLibrary.push(book)
+    let booktitle = book["title"];
+    let storedbooks = JSON.parse(localStorage.getItem("Books"))
+    let doubleCheck = false;
+    if (storedbooks == null) {
+        myLibrary.push(book)
+    } else {
+        for (let i = 0; i < storedbooks.length; i++) {
+            if (storedbooks[i]["title"] == booktitle) {
+                doubleCheck = false;
+                alert(booktitle + " is already in the library")
+                break;
+            } else {
+                doubleCheck = true;
+            }
+        }
+
+        if (doubleCheck == true) {
+            myLibrary.push(book)
+        }
+    }
     localStorage.setItem("Books", JSON.stringify(myLibrary))
     bookCount.textContent = myLibrary.length;
     displayBooks();
@@ -105,7 +123,18 @@ function domAdditionFunction(book) {
         // console.log(getLocalStorage)
         // localStorage.setItem("Books", JSON.stringify(getLocalStorage))
         // displayBooks()
+
+        let localBooks = JSON.parse(localStorage.getItem(("Books")))
+        localBooks.splice(x,1)
+        myLibrary = localBooks
+        localStorage.setItem("Books", JSON.stringify(myLibrary))
+        console.log(localBooks)
+        refresh()
     })
+}
+
+function refresh() {
+    location.reload();
 }
 
 //Clear All Books
