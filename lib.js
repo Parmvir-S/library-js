@@ -117,12 +117,6 @@ function domAdditionFunction(book) {
     remove.addEventListener("click", (e) => {
         let x = myLibrary.indexOf(book);
         console.log(x)
-        // myLibrary.splice(x, 1)
-        // let getLocalStorage = JSON.parse(localStorage.getItem("Books"));
-        // const index = getLocalStorage.splice(x, 1);
-        // console.log(getLocalStorage)
-        // localStorage.setItem("Books", JSON.stringify(getLocalStorage))
-        // displayBooks()
 
         let localBooks = JSON.parse(localStorage.getItem(("Books")))
         localBooks.splice(x,1)
