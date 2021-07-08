@@ -104,6 +104,20 @@ p {
     margin-bottom: 1%;
 }
 
+#toggle {
+    background-color: aqua;
+    font-size: 1.2em;
+}
+
+#remove {
+    font-size: 1.2em;
+    background-color: white;
+    border: none;
+}
+
+#remove:hover {
+    transform: scale(1.3);
+}
 
 table {
     grid-column: 1/2;

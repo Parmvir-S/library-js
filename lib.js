@@ -102,7 +102,7 @@ function domAdditionFunction(book) {
                                     "<td>" + book["author"] + "</td>" + 
                                     "<td>" + book["pages"] + "</td>" + 
                                     "<td>" + "<button id='toggle'>" + readStatus + "</button>" + "</td>" +
-                                    "<td>" + "<button id='remove'>" + "remove" + "</button>" + "</td>" +
+                                    "<td>" + "<button id='remove'>" + "❎" + "</button>" + "</td>" +
                                 "</tr>"
     table.appendChild(tableContent);
 
