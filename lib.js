@@ -27,13 +27,15 @@ function makeBookObject() {
 function addBookToStorage() {
     let book = makeBookObject();
     let booktitle = book["title"];
-    let storedbooks = JSON.parse(localStorage.getItem("Books"))
+    let bookauthor = book["author"];
+    let bookpages = book["pages"];
+    let storedbooks = JSON.parse(localStorage.getItem("Books"));
     let doubleCheck = false;
     if (storedbooks == null) {
         myLibrary.push(book)
     } else {
         for (let i = 0; i < storedbooks.length; i++) {
-            if (storedbooks[i]["title"] == booktitle) {
+            if (storedbooks[i]["title"] == booktitle && storedbooks[i]["author"] == bookauthor && storedbooks[i]["pages"] == bookpages) {
                 doubleCheck = false;
                 alert(booktitle + " is already in the library")
                 break;
